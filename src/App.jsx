@@ -19,7 +19,7 @@ const App = () => {
 
         if (!res.ok) throw new Error("Something went wrong");
         const data = await res.json();
-        setConverted(data);
+        setConverted(data.conversion_rate);
       } finally {
         setIsLoading(false);
       }
@@ -30,12 +30,22 @@ const App = () => {
   return (
     <div>
       <h1>XchangePro</h1>
+      <input
+        type="text"
+        value={amount}
+        onChange={(e) => setAmount(Number(e.target.value))}
+      />
       <CurrenciesOpt
         fromCurrency={fromCurrency}
         toCurrency={toCurrency}
         setToCurrency={setToCurrency}
         setFromCurrency={setFromCurrency}
       />
+      {!isLoading && (
+        <p>
+          {(amount * converted).toFixed(2)} {toCurrency}
+        </p>
+      )}
     </div>
   );
 };

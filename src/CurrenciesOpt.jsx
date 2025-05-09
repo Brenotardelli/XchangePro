@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import euFlag from "./assets/EU-flag.svg";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const CurrenciesOpt = ({
@@ -31,10 +32,14 @@ const CurrenciesOpt = ({
   return (
     <div>
       <div>
-        <img
-          src={`https://flagsapi.com/${flagCodeFrom}/flat/64.png`}
-          alt="Flag"
-        />
+        {fromCurrency === "EUR" ? (
+          <img src={euFlag} alt="EU Flag" />
+        ) : (
+          <img
+            src={`https://flagsapi.com/${flagCodeFrom}/flat/64.png`}
+            alt="Flag"
+          />
+        )}
         <select
           value={fromCurrency}
           onChange={(e) => setFromCurrency(e.target.value)}
@@ -44,14 +49,18 @@ const CurrenciesOpt = ({
               {code} - {name}
             </option>
           ))}
-        </select>
+        </select> 
       </div>
 
       <div>
-        <img
-          src={`https://flagsapi.com/${flagCodeTo}/flat/64.png`}
-          alt="Flag"
-        />
+        {toCurrency === "EUR" ? (
+          <img src={euFlag} alt="EU Flag" />
+        ) : (
+          <img
+            src={`https://flagsapi.com/${flagCodeTo}/flat/64.png`}
+            alt="Flag"
+          />
+        )}
         <select
           value={toCurrency}
           onChange={(e) => setToCurrency(e.target.value)}
