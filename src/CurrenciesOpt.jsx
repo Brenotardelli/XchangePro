@@ -11,6 +11,14 @@ const CurrenciesOpt = ({
   const [currencies, setCurrencies] = useState([]);
   const flagCodeFrom = fromCurrency.substring(0, 2);
   const flagCodeTo = toCurrency.substring(0, 2);
+
+  const switchCurrency = () => {
+    setFromCurrency((prev) => {
+      setToCurrency(prev);
+      return toCurrency;
+    });
+  };
+
   useEffect(() => {
     async function fetchCurrencies() {
       try {
@@ -49,7 +57,7 @@ const CurrenciesOpt = ({
               {code} - {name}
             </option>
           ))}
-        </select> 
+        </select>
       </div>
 
       <div>
@@ -72,6 +80,7 @@ const CurrenciesOpt = ({
           ))}
         </select>
       </div>
+      <button onClick={switchCurrency}>🔁</button>
     </div>
   );
 };
