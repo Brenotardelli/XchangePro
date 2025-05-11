@@ -2,6 +2,10 @@
 
 **XchangePro** is a simple and responsive web app built with **React.js** that allows users to convert between different currencies in real-time using data from the [ExchangeRate-API](https://www.exchangerate-api.com/).
 
+🌐 Live Demo
+Check out the live version of the app here:
+👉 https://xchange-pro.vercel.app/
+
 ## 🚀 Features
 
 - Real-time currency conversion
@@ -27,6 +31,4 @@ npm install
 npm start
 
 
-🌐 Live Demo
-Check out the live version of the app here:
-👉 https://xchange-pro.vercel.app/
+
