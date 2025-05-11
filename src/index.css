@@ -1,4 +1,86 @@
-img {
-  width: 42px;
-  height: 42px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  background-color: #faf9f5;
+  color: #212121;
+}
+
+img,
+svg {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+input,
+select {
+  background-color: beige;
+  margin-left: 4px;
+  height: 32px;
+  padding: 10px;
+  border: 1px solid #212121;
+  border-radius: 4px;
+}
+
+select {
+  padding: 6px;
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.result {
+  font-weight: bold;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.xchange {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.currency-flex {
+  display: flex;
+  align-content: center;
+  position: relative;
+}
+
+.btn {
+  position: absolute;
+  left: 80%;
+  top: -50%;
+  font-size: 26px;
 }

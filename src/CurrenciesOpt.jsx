@@ -39,7 +39,7 @@ const CurrenciesOpt = ({
 
   return (
     <div>
-      <div>
+      <div className="currency-flex">
         {fromCurrency === "EUR" ? (
           <img src={euFlag} alt="EU Flag" />
         ) : (
@@ -60,7 +60,7 @@ const CurrenciesOpt = ({
         </select>
       </div>
 
-      <div>
+      <div className="currency-flex">
         {toCurrency === "EUR" ? (
           <img src={euFlag} alt="EU Flag" />
         ) : (
@@ -79,8 +79,10 @@ const CurrenciesOpt = ({
             </option>
           ))}
         </select>
+        <button className="btn" onClick={switchCurrency}>
+          🔁
+        </button>
       </div>
-      <button onClick={switchCurrency}>🔁</button>
     </div>
   );
 };
