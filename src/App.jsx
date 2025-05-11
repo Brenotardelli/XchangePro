@@ -5,9 +5,17 @@ const App = () => {
   const [converted, setConverted] = useState([]);
   const [fromCurrency, setFromCurrency] = useState("EUR");
   const [toCurrency, setToCurrency] = useState("USD");
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState("1");
   const [isLoading, setIsLoading] = useState(false);
   const API_KEY = import.meta.env.VITE_API_KEY;
+
+  function handleChange(e) {
+    const prevValue = e.target.value.replace(",", ".");
+    const value = prevValue === "" ? "" : parseFloat(prevValue);
+    if (prevValue === "" || !isNaN(value)) {
+      setAmount(prevValue);
+    }
+  }
 
   useEffect(() => {
     async function convert() {
@@ -33,11 +41,7 @@ const App = () => {
         <h1>XchangePro</h1>
         <label>
           Amount
-          <input
-            type="text"
-            value={amount}
-            onChange={(e) => setAmount(Number(e.target.value))}
-          />
+          <input type="text" value={amount} onChange={handleChange} />
         </label>
         <CurrenciesOpt
           fromCurrency={fromCurrency}
@@ -47,7 +51,7 @@ const App = () => {
         />
 
         <p className="result">
-          {(amount * converted).toFixed(2)} {toCurrency}
+          {(parseFloat(amount || 0) * converted).toFixed(2)} {toCurrency}
         </p>
       </div>
     </main>
