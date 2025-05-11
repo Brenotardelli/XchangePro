@@ -34,7 +34,7 @@ const App = () => {
     }
 
     convert();
-  }, [fromCurrency, toCurrency, amount, API_KEY]);
+  }, [fromCurrency, toCurrency, API_KEY]);
   return (
     <main className="content">
       <div className="xchange">
